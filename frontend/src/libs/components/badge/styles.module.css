@@ -1,0 +1,9 @@
+.badge {
+    display: block;
+    float: left;
+    border-radius: 50px;
+    background-color: var(--color-text-100);
+    text-align: center;
+    font-weight: bold;
+    line-height: 1;
+}

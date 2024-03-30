@@ -1,0 +1,29 @@
+:root {
+	--modal-container-background: #5596c1b2;
+	--main-white: #ffffff;
+	--main-color:#3f9de1;
+	--second-color:#a3cbe7;
+	--thirty-color:#78c0f4;
+	--color-menu: #000202;
+	--shadow-color: #00000026;
+	--color-text-100: #dcdcdc;
+	--color-text-200: #7a7a88;
+	--color-text-300: #313134;
+	--color-error: #f62d2d;
+	--color-input: #037768;
+	--font-size-50: 10px;
+	--font-size-100: 12px;
+	--font-size-150: 13px;
+	--font-size-200: 14px;
+	--font-size-300: 16px;
+	--font-size-350: 18px;
+	--font-size-400: 20px;
+	--font-size-500: 22px;
+	--font-size-550: 24px;
+	--font-size-600: 28px;
+	--font-size-700: 30px;
+	--font-size-800: 42px;
+	--z-index-low: 10;
+	--z-index-medium: 100;
+	--z-index-high: 1000;
+}
