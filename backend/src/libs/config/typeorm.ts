@@ -8,19 +8,19 @@ import { HistoryOfChangesTaskModule } from '../../modules/history-of-changes-tas
 dotenvConfig({ path: '.env' });
 
 const config = {
-    type: 'postgres',
-    host: `${process.env.DATABASE_HOST}`,
-    port: `${process.env.DATABASE_PORT}`,
-    username: `${process.env.DATABASE_USERNAME}`,
-    password: `${process.env.DATABASE_PASSWORD}`,
-    database: `${process.env.DATABASE_NAME}`,
-    entities: [Task, TaskColumn, HistoryOfChangesTaskModule],
-    migrations: ["dist/libs/db/migrations/*{.ts,.js}"],
-    autoLoadEntities: true,
-    synchronize: false,
-    migrationsRun: true,
-    migrationsTableName: "migrations"
-}
+  type: 'postgres',
+  // host: 'postgres://board_pe4j_user:cetdSqwHVVXk9nkJj9ohOziNq8NaGfO6@dpg-co4ktbi1hbls73bucvsg-a/board_pe4j',
+  port: `${process.env.DATABASE_PORT}`,
+  username: `${process.env.DATABASE_USERNAME}`,
+  password: `${process.env.DATABASE_PASSWORD}`,
+  database: `${process.env.DATABASE_NAME}`,
+  entities: [Task, TaskColumn, HistoryOfChangesTaskModule],
+  migrations: ['dist/libs/db/migrations/*{.ts,.js}'],
+  autoLoadEntities: true,
+  synchronize: false,
+  migrationsRun: true,
+  migrationsTableName: 'migrations',
+};
 
 export default registerAs('typeorm', () => config)
 export const connectionSource = new DataSource(config as DataSourceOptions);
