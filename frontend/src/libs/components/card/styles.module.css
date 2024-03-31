@@ -1,0 +1,92 @@
+@import url("~/assets/css/media.css");
+
+.provider-wrapper {
+  padding: 1em;
+  margin-bottom: 1em;
+  border-radius: 0.5em;
+  background-color: var(--main-white);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+.provider {
+  background-color: var(--color-text-100);
+  padding: 0.75em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.provider-wrapper::after {
+  border-left-width: 0.25em;
+}
+
+.text {
+  min-height: 66px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  margin-top: 8px;
+  color: var(--color-text-200);
+  font-size: var(--font-size-200);
+}
+
+.calendar-text {
+  color: var(--color-text-200);
+  font-size: var(--font-size-100);
+}
+
+.calendar-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5em;
+}
+
+.calendar-icon {
+  color: var(--color-text-200);
+  margin-right: 0.5em;
+}
+
+.badge {
+  padding-left: 0.5em;
+  padding-right: 1em;
+  margin-top: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  color: var(--color-text-300);
+  background-color: var(--color-text-100);
+}
+
+.dropdown {
+  margin-top: 0.5em;
+  border: 1px solid var(--color-text-200);
+  width: 100%;
+  transition: 0.3s;
+}
+
+.drop-item {
+  display: flex;
+}
+
+.delete-item {
+  color: var(--color-error);
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.card-title{
+  cursor: pointer;
+}
+
+@media screen and (--hover-active) {
+  .provider-wrapper:hover {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .dropdown:hover {
+    border: 1px solid var(--main-color);
+  }
+}

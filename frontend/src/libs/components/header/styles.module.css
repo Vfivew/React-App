@@ -1,0 +1,70 @@
+@import url("~/assets/css/media.css");
+
+.header {
+  width: inherit;
+  width: 100%;
+  background-color: var(--second-color);
+  color: var(--color-text-300);
+  padding: 24px;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
+
+.title {
+  font-size: var(--font-size-500);
+  line-height: 2em;
+  font-weight: 700;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: end;
+}
+
+.button {
+  font-size: var(--font-size-350);
+  color: var(--main-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  margin-right: 8px;
+  padding: 8px 12px 8px 4px;
+  background-color: var(--main-white);
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+.icon {
+  color: var(--main-color);
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+  transition: 0.3s;
+}
+
+@media screen and (--hover-active) {
+  .button:hover {
+    background-color: var(--main-color);
+    color: var(--color-text-300);
+  }
+}
+
+@media screen and (--small-screen) {
+  .button-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .button{
+    margin-top: 6px;
+  }
+}

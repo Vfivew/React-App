@@ -1,0 +1,55 @@
+@import url("~/assets/css/media.css");
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+  border-radius: 0.375em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  font-size: var(--font-size-200);
+  font-weight: 500;
+  color: var(--color-text-300);
+}
+
+.button-text {
+  cursor: pointer;
+}
+
+.dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+  text-align: left;
+}
+
+.list-button {
+  display: block;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  text-align: right;
+  transition: 0.3s;
+}
+
+.list {
+  font-size: var(--font-size-100);
+  color: var(--color-text-300);
+}
+
+.dropdown {
+  z-index: var(--z-index-medium);
+  position: absolute;
+  margin-top: 0.5em;
+  background-color: var(--main-white);
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375em;
+  min-width: 10em;
+  width: 100%;
+}
+
+@media screen and (--hover-active) {
+  .list-button:hover {
+    background-color: var(--color-text-100);
+  }
+}

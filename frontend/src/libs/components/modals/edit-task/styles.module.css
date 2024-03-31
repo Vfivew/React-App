@@ -1,0 +1,128 @@
+@import url("~/assets/css/media.css");
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: var(--z-index-low);
+  cursor: default;
+}
+
+.blur-background {
+  position: fixed;
+  inset: 0px;
+  background-color: var(--modal-container-background);
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.modal-content {
+  display: flex;
+  position: relative;
+  background-color: var(--main-white);
+  border-radius: 0.5em;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 80%;
+  max-height: 500px;
+}
+
+.modal-left-block {
+  padding: 1.5em;
+  width: 60%;
+}
+
+.modal-right-block {
+  background-color: var(--second-color);
+  padding: 1.5em;
+  width: 40%;
+  overflow-y: auto;
+}
+
+.modal-title {
+  font-size: var(--font-size-300);
+  font-weight: 600;
+  margin-bottom: 1em;
+}
+
+.input-title {
+  display: block;
+  font-size: var(--font-size-200);
+  font-weight: 500;
+  color: #4b5563;
+  margin-bottom: 0.25em;
+}
+
+.modal-textarea {
+  width: 100%;
+  border: 1px solid var(--color-text-200);
+  border-radius: 0.25em;
+  padding: 0.75em;
+  margin-bottom: 1em;
+}
+
+.modal-dropdown {
+  display: flex;
+  align-items: center;
+  padding-left: 0;
+  margin-bottom: 12px;
+}
+
+.modal-list {
+  list-style-type: disc;
+  padding-left: 1.25em;
+}
+
+.drop-item {
+  display: flex;
+}
+
+.list-data {
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.list-item {
+  padding: 8px 12px 8px 0;
+}
+
+.list-text {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.status {
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.status-title {
+  font-weight: 400;
+}
+
+@media screen and (--small-screen) {
+  .modal-content {
+    flex-direction: column;
+    max-width: 100%;
+    max-height: 100vh;
+  }
+
+  .modal-right-block {
+    background-color: var(--second-color);
+    width: 100%;
+    overflow-y: auto;
+  }
+
+  .modal-left-block {
+    width: 100%;
+  }
+
+  .modal-table td {
+    padding: 4px 0;
+  }
+}

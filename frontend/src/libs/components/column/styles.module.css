@@ -1,0 +1,51 @@
+.column-wrapper {
+  width: 20em;
+  min-height: 100px;
+  background-color: var(--main-white);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0.5em;
+  display: flex;
+  flex-direction: column;
+}
+
+.column {
+  background-color: var(--second-color);
+  padding: 0.75em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.create-card {
+  margin: 1em;
+  position: relative;
+  height: 4em;
+}
+
+.column-content {
+  flex: 1;
+  padding: 1em;
+  overflow-y: auto;
+}
+
+.drop-item {
+  display: flex;
+}
+
+.delete-item {
+  color: var(--color-error);
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.snapshot-target-background {
+  background-color: var(--second-color);
+}
+
+.snapshot-background {
+  background-color: var(--color-text-100);
+}
