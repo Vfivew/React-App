@@ -9,7 +9,7 @@ dotenvConfig({ path: '.env' });
 
 const config = {
   type: 'postgres',
-  // host: 'postgres://board_pe4j_user:cetdSqwHVVXk9nkJj9ohOziNq8NaGfO6@dpg-co4ktbi1hbls73bucvsg-a/board_pe4j',
+  host: `${process.env.DATABASE_HOST}`,
   port: `${process.env.DATABASE_PORT}`,
   username: `${process.env.DATABASE_USERNAME}`,
   password: `${process.env.DATABASE_PASSWORD}`,
