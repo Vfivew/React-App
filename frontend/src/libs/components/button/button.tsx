@@ -4,7 +4,7 @@ import styles from "./styles.module.css";
 
 type Properties = {
   className?: string | undefined;
-  onClick?: (e: any) => void;
+  onClick?: (e: React.ChangeEvent | React.MouseEvent) => void;
   type?: "button" | "submit";
   children: React.ReactNode;
   style?: "submit" | "cancel" | "plain";
@@ -15,9 +15,13 @@ const Button: React.FC<Properties> = ({
   onClick,
   type = "button",
   children,
-  style ="plain"
+  style = "plain",
 }) => {
-  const buttonStyles = getValidClassNames(styles["button"], styles[style], className);
+  const buttonStyles = getValidClassNames(
+    styles["button"],
+    styles[style],
+    className
+  );
 
   return (
     <button className={buttonStyles} onClick={onClick} type={type}>

@@ -1,11 +1,10 @@
 import moment from "moment";
-import { useEffect } from "react";
 import { FaTimes } from "react-icons/fa";
 
-import { useAppDispatch, useAppSelector } from "~/libs/hooks/hooks";
+import { useAppDispatch, useAppSelector, useEffect } from "~/libs/hooks/hooks";
 import { TaskHistory } from "~/libs/types/types";
 import { actions as historyActions } from "~/modules/history/history";
-import { Button } from "../../button/button";
+import { Button } from "~/libs/components/button/button";
 
 import styles from "./styles.module.css";
 
@@ -16,6 +15,7 @@ type Properties = {
 
 const History: React.FC<Properties> = ({ isOpen, onClose }) => {
   const dispatch = useAppDispatch();
+  const history = useAppSelector((state) => state.historyReducer.history);
 
   const handleModalClick = (event: React.MouseEvent<HTMLDivElement>) => {
     if (event.target === event.currentTarget) {
@@ -27,8 +27,6 @@ const History: React.FC<Properties> = ({ isOpen, onClose }) => {
     dispatch(historyActions.getHistory());
   }, [dispatch, isOpen]);
 
-  const history = useAppSelector((state) => state.historyReducer.history);
-  console.log(history)
   return (
     <>
       {isOpen && (

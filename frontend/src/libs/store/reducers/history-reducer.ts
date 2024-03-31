@@ -1,8 +1,9 @@
-// import { HistoryData } from "~/libs/types/history-data.type";
+import { TaskHistory } from "~/libs/types/types";
+
 import { HistoryAction } from "../libs/enums/enums";
 
-export interface HistoryState {
-  history: any[];
+type HistoryState ={
+  history: TaskHistory[];
   isLoading: boolean;
 }
 

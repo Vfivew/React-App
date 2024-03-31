@@ -21,7 +21,6 @@ class TaskApi {
       updatedTaskData,
       {}
     );
-      console.log(res.data,'tpoehpephre')
     return res.data;
   }
 
