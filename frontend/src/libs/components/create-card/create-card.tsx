@@ -20,13 +20,12 @@ const CreateCard: React.FC<Properties> = ({
   const dispatch = useAppDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => {
-    console.log("open");
+
     setIsModalOpen(true);
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
-    console.log("close", isModalOpen);
   };
 
   const handleCreateTask = (task: CreateTask) => {
@@ -45,8 +44,6 @@ const CreateCard: React.FC<Properties> = ({
         <div
           className={`${styles["edit-wrapper"]} ${classNames.join(" ")}`}
           ref={provided.innerRef}
-          // {...provided.draggableProps}
-          // {...provided.dragHandleProps}
         >
           <section className={styles["add-card"]} onClick={openModal}>
             <FaPlus className={styles["icon"]} />

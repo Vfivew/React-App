@@ -4,23 +4,20 @@ import axios from "axios";
 
 import { useState, useEffect } from "~/libs/hooks/hooks.js";
 import { ReactDropdown } from "~/libs/components/dropdown/dropdown";
-import {
-  DropDownAction,
-  Task,
-  TaskHistory,
-} from "~/libs/types/types";
+import { DropDownAction, Task, TaskHistory } from "~/libs/types/types";
 import { Priority } from "~/libs/enums/enums";
 import { Button } from "~/libs/components/button/button.js";
 import { Input } from "~/libs/components/input/input.js";
 
 import styles from "./styles.module.css";
+import { FaSortAmountDown, FaSyncAlt } from "react-icons/fa";
 
-interface Properties {
+type Properties = {
   isOpen: boolean;
   onEditTask: (editedTask: Task) => void;
   onClose: () => void;
   task: Task;
-}
+};
 
 const EditTaskModalWindow: React.FC<Properties> = ({
   task,
@@ -28,7 +25,6 @@ const EditTaskModalWindow: React.FC<Properties> = ({
   onEditTask,
   onClose,
 }) => {
-  console.log(task);
   const [taskTitle, setTaskTitle] = useState(task.title);
   const [taskDescription, setTaskDescription] = useState(task.description);
   const [taskDate, setTaskDate] = useState(
@@ -80,7 +76,6 @@ const EditTaskModalWindow: React.FC<Properties> = ({
       };
       onEditTask(editedTask);
       onClose();
-      console.log(taskDate);
     }
   };
 
@@ -98,16 +93,15 @@ const EditTaskModalWindow: React.FC<Properties> = ({
     }
   };
 
-  useEffect(() => {
-    fetchData(task.id);
-  }, []); // here
-
-  console.log(task);
   const handleModalClick = (event: React.MouseEvent<HTMLDivElement>) => {
     if (event.target === event.currentTarget) {
       onClose();
     }
   };
+
+  useEffect(() => {
+    fetchData(task.id);
+  }, []);
 
   return (
     <>
@@ -131,10 +125,22 @@ const EditTaskModalWindow: React.FC<Properties> = ({
                 placeholder="Enter task title"
               />
               <div className={styles["status"]}>
-                Status:{" "}
+                <FaSyncAlt className={styles["icon"]} /> Status:&nbsp;
                 <span className={styles["status-title"]}>
                   {task.column.title}
                 </span>
+              </div>
+              <div className={styles["status"]}>
+                <FaSortAmountDown className={styles["icon"]} />
+                <ReactDropdown
+                  options={dropdownItems}
+                  onSelect={handleDropdownChange}
+                  classNames={["mb-4"]}
+                >
+                  <div className={styles["modal-dropdown"]}>
+                    {taskPriority} <BiDotsVerticalRounded />
+                  </div>
+                </ReactDropdown>
               </div>
               <label
                 htmlFor="task-description"
@@ -150,16 +156,6 @@ const EditTaskModalWindow: React.FC<Properties> = ({
                 placeholder="Enter task description"
                 rows={5}
               ></textarea>
-
-              <ReactDropdown
-                options={dropdownItems}
-                onSelect={handleDropdownChange}
-                classNames={["mb-4"]}
-              >
-                <div className={styles["modal-dropdown"]}>
-                  {taskPriority} <BiDotsVerticalRounded />
-                </div>
-              </ReactDropdown>
 
               <label htmlFor="task-date" className={styles["input-title"]}>
                 Task due date

@@ -6,7 +6,6 @@ import { taskApi } from "./task";
 const getAllTasks = () => async (dispatch: Dispatch) => {
   try {
     const tasks = await taskApi.getAllTasks();
-    console.log(tasks)
     dispatch({
       type: TaskAction.GET_TASKS,
       payload: tasks,
@@ -63,6 +62,5 @@ const deleteTask = (deleteTaskId: number) => async (dispatch: Dispatch) => {
     });
   }
 };
-
 
 export { getAllTasks, patchTask, createTask, deleteTask };

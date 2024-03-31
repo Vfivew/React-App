@@ -3,7 +3,7 @@ import { config as dotenvConfig } from 'dotenv';
 import { DataSource, DataSourceOptions } from "typeorm";
 import { Task } from '../../modules/tasks/entities/task.entity';
 import { TaskColumn } from '../../modules/task-columns/entities/task-column.entity';
-import { HistoryOfChangesTaskModule } from '../../modules/history-of-changes-task/history-of-changes-task.module';
+import { HistoryOfChangesTaskModule } from 'src/modules/history-of-changes-task/history-of-changes-task.module';
 
 dotenvConfig({ path: '.env' });
 

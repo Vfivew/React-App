@@ -67,10 +67,10 @@
 }
 
 .modal-dropdown {
+    font-weight: bold;
   display: flex;
   align-items: center;
   padding-left: 0;
-  margin-bottom: 12px;
 }
 
 .modal-list {
@@ -97,6 +97,8 @@
 }
 
 .status {
+  display: flex;
+  align-items:center;
   font-weight: bold;
   margin-bottom: 12px;
 }
@@ -105,10 +107,16 @@
   font-weight: 400;
 }
 
+.icon {
+  margin-right: 10px;
+  color:var(--main-color)
+}
+
 @media screen and (--small-screen) {
   .modal-content {
     flex-direction: column;
     max-width: 100%;
+    width: 100%;
     max-height: 100vh;
   }
 

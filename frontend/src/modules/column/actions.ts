@@ -28,7 +28,6 @@ const patchColumn =
         type: ColumnAction.PATCH_COLUMN,
         payload: updatedColumn,
       });
-      console.log(updatedColumn);
     } catch (error) {
       dispatch({
         type: "ERROR_OCCURRED",

@@ -4,7 +4,7 @@ import { TaskAction } from "../libs/enums/enums";
 type TaskState = {
   tasks: Task[];
   isLoading: boolean;
-}
+};
 
 const initialState: TaskState = {
   tasks: [],
@@ -61,4 +61,4 @@ const taskReducer = (state = initialState, action: any) => {
   }
 };
 
-export {taskReducer};
+export { taskReducer };

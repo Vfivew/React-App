@@ -1,4 +1,5 @@
 import { BiDotsVerticalRounded } from "react-icons/bi";
+import { FaSortAmountDown } from "react-icons/fa";
 
 import { ReactDropdown } from "~/libs/components/dropdown/dropdown";
 import { CreateTask, DropDownAction } from "~/libs/types/types";
@@ -8,6 +9,7 @@ import { Button } from "~/libs/components/button/button";
 import { Input } from "~/libs/components/input/input";
 
 import styles from "./styles.module.css";
+
 
 type Properties = {
   isOpen: boolean;
@@ -56,7 +58,6 @@ const CreateTaskModal: React.FC<Properties> = ({
   };
 
   const handleCreateTask = () => {
-    console.log(taskDate);
     if (taskTitle.trim() !== "" && taskDate !== "") {
       onCreateTask({
         title: taskTitle,
@@ -114,12 +115,12 @@ const CreateTaskModal: React.FC<Properties> = ({
                 placeholder="Enter task description"
                 rows={5}
               ></textarea>
-
               <ReactDropdown
                 options={dropdownItems}
                 onSelect={(item: DropDownAction) => handleDropdownChange(item)}
               >
                 <div className={styles["modal-dropdown"]}>
+                  <FaSortAmountDown className={styles["icon"]} />
                   {taskPriority} <BiDotsVerticalRounded />
                 </div>
               </ReactDropdown>
@@ -163,4 +164,4 @@ const CreateTaskModal: React.FC<Properties> = ({
   );
 };
 
-export {CreateTaskModal}
+export { CreateTaskModal };

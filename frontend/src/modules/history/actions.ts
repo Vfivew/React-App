@@ -19,5 +19,4 @@ const getHistory = () => async (dispatch: Dispatch) => {
   }
 };
 
-
-export { getHistory};
+export { getHistory };

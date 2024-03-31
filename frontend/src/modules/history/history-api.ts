@@ -14,4 +14,4 @@ class HistoryApi {
   }
 }
 
-export { HistoryApi};
+export { HistoryApi };

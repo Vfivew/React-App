@@ -1,7 +1,7 @@
 import { ColumnData } from "~/libs/types/column-data.type";
 import { ColumnAction } from "../libs/enums/enums";
 
-export interface ColumState {
+type ColumState ={
   columns: ColumnData[];
   isLoading: boolean;
 }

@@ -12,21 +12,21 @@
 
 .cancel {
   background-color: var(--color-text-200);
-  color:var(--main-white);
+  color: var(--main-white);
   padding: 0.5em 1em;
   border-radius: 0.25em;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.plain{
+.plain {
   cursor: pointer;
   transition: 0.3s;
 }
 
 @media screen and (--hover-active) {
   .submit:hover {
-    background-color: var(--thirty-color);;
+    background-color: var(--thirty-color);
   }
   .cancel:hover {
     background-color: var(--color-text-100);
@@ -35,5 +35,3 @@
     color: rgb(0, 0, 0);
   }
 }
-
-

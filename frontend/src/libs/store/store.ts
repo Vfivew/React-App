@@ -1,6 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import { columnReducer, historyReducer, taskReducer } from "./reducers/reducers";
+import {
+  columnReducer,
+  historyReducer,
+  taskReducer,
+} from "./reducers/reducers";
 
 const store = configureStore({
   reducer: { taskReducer, columnReducer, historyReducer },

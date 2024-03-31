@@ -10,11 +10,7 @@ import { actions as columnActions } from "~/modules/column/column";
 import { EditableTitle } from "~/libs/components/editable-title/editable-title";
 import { CreateTaskModal } from "~/libs/components/modals/create-task/create-task-modal";
 import { actions as taskActions } from "~/modules/task/task";
-import {
-  useAppDispatch,
-  useState,
-  useAppSelector,
-} from "~/libs/hooks/hooks";
+import { useAppDispatch, useState, useAppSelector } from "~/libs/hooks/hooks";
 import {
   ColumnData,
   CreateTask,
@@ -24,7 +20,6 @@ import {
 import { DropDown } from "~/libs/enums/enums";
 
 import styles from "./styles.module.css";
-
 
 const Column = ({
   columnData,
@@ -37,18 +32,6 @@ const Column = ({
   const dispatch = useAppDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [focusInput, setFocusInput] = useState(false);
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleCreateTask = (task: CreateTask) => {
-    task.columnId = columnData.id;
-    dispatch(taskActions.createTask(task));
-  };
 
   const dropdownItem = [
     {
@@ -76,6 +59,20 @@ const Column = ({
       action: DropDown.DELETE,
     },
   ];
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCreateTask = (task: CreateTask) => {
+    task.columnId = columnData.id;
+    dispatch(taskActions.createTask(task));
+  };
+
   const onSelect = (item: DropDownType) => {
     if (item.action == DropDown.DELETE) {
       dispatch(columnActions.deleteColumn(columnData.id));
@@ -92,11 +89,11 @@ const Column = ({
 
   const handleTitleSave = (newTitle: string) => {
     setFocusInput(false);
-    dispatch(columnActions.patchColumn({ ...columnData, title: newTitle }))
-    .then(()=> dispatch(taskActions.getAllTasks()))
+    dispatch(
+      columnActions.patchColumn({ ...columnData, title: newTitle })
+    ).then(() => dispatch(taskActions.getAllTasks()));
   };
 
-  console.log(tasks)
   return (
     <>
       <Draggable draggableId={columnData.title + columnData.id} index={index}>

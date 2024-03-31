@@ -22,7 +22,7 @@
 }
 
 .text {
-  min-height: 66px;
+  min-height: 90px;
   word-wrap: break-word;
   overflow-wrap: break-word;
   margin-top: 8px;
@@ -49,11 +49,11 @@
 .badge {
   padding-left: 0.5em;
   padding-right: 1em;
-  margin-top: 1em;
+  margin: 1em 0;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   color: var(--color-text-300);
-  background-color: var(--color-text-100);
+  background-color: var(--second-color);
 }
 
 .dropdown {
@@ -77,7 +77,7 @@
   margin-right: 8px;
 }
 
-.card-title{
+.card-title {
   cursor: pointer;
 }
 

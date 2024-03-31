@@ -40,7 +40,7 @@
 
 .input-title {
   display: block;
- font-size: var(--font-size-200);
+  font-size: var(--font-size-200);
   font-weight: 500;
   color: #4b5563;
   margin-bottom: 0.25em;
@@ -58,8 +58,15 @@
   display: flex;
   align-items: center;
   padding-left: 0;
+  margin-bottom: 12px;
 }
 
 .drop-item {
   display: flex;
+}
+
+.icon{
+  transition: 0.3s;
+  color: var(--main-color);
+  margin-right:10px;
 }
