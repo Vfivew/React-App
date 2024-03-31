@@ -1,0 +1,24 @@
+@import url("~/assets/css/media.css");
+
+.edit-wrapper {
+  border: 2px dashed rgb(59, 54, 54);
+  display: flex;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-card {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.icon {
+  margin: 0 0.5em;
+}
+
+@media screen and (--hover-active) {
+  .edit-wrapper:hover {
+    border-color: var(--main-color)
+  }
+}

@@ -1,0 +1,88 @@
+@import url("~/assets/css/media.css");
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: var(--z-index-low);
+  cursor: default;
+  justify-content: flex-end;
+}
+
+.blur-background {
+  position: fixed;
+  inset: 0px;
+  background-color: var(--modal-container-background);
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.modal-content {
+  position: relative;
+  background-color: var(--main-white);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 40%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.modal-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.modal-list {
+  list-style-type: disc;
+  padding-left: 26px;
+}
+
+.list-data {
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.list-item {
+  padding: 8px 12px 8px 0;
+}
+
+.list-text {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.modal-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 22px 20px 26px;
+  background-color: var(--color-text-100);
+}
+
+.title {
+  font-weight: bold;
+  color: var(--main-color);
+  font-size: var(--font-size-600);
+}
+
+.button {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  color: var(--main-color);
+  transition: 0.3s;
+}
+
+@media screen and (--small-screen) {
+  .modal-content {
+    width: 100%;
+  }
+}
