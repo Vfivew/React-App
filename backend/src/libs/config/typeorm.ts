@@ -20,6 +20,7 @@ const config = {
   synchronize: false,
   migrationsRun: true,
   migrationsTableName: 'migrations',
+  ssl: true,
 };
 
 export default registerAs('typeorm', () => config)
