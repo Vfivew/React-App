@@ -1,6 +1,7 @@
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import moment from "moment";
 import axios from "axios";
+import { FaSortAmountDown, FaSyncAlt, FaTimes } from "react-icons/fa";
 
 import { useState, useEffect } from "~/libs/hooks/hooks.js";
 import { ReactDropdown } from "~/libs/components/dropdown/dropdown";
@@ -10,7 +11,6 @@ import { Button } from "~/libs/components/button/button.js";
 import { Input } from "~/libs/components/input/input.js";
 
 import styles from "./styles.module.css";
-import { FaSortAmountDown, FaSyncAlt } from "react-icons/fa";
 
 type Properties = {
   isOpen: boolean;
@@ -31,6 +31,7 @@ const EditTaskModalWindow: React.FC<Properties> = ({
     moment(task.due_date).format("YYYY-MM-DD")
   );
   const [taskPriority, setTaskPriority] = useState(task.priority);
+  const [isError, setIsError] = useState(false);
   const [history, setHistory] = useState<TaskHistory[]>([]);
 
   const dropdownItems = Object.keys(Priority).map((element) => ({
@@ -66,7 +67,11 @@ const EditTaskModalWindow: React.FC<Properties> = ({
   }, [isOpen, task]);
 
   const handleEditTask = () => {
-    if (taskTitle.trim() !== "" && taskDate !== "Invalid date") {
+    if (
+      taskTitle.trim() !== "" &&
+      taskDate !== "Invalid date" &&
+      taskDescription !== ""
+    ) {
       const editedTask: Task = {
         ...task,
         title: taskTitle,
@@ -75,7 +80,10 @@ const EditTaskModalWindow: React.FC<Properties> = ({
         priority: taskPriority,
       };
       onEditTask(editedTask);
+      setIsError(false);
       onClose();
+    } else {
+      setIsError(true);
     }
   };
 
@@ -95,6 +103,7 @@ const EditTaskModalWindow: React.FC<Properties> = ({
 
   const handleModalClick = (event: React.MouseEvent<HTMLDivElement>) => {
     if (event.target === event.currentTarget) {
+      setIsError(false);
       onClose();
     }
   };
@@ -122,7 +131,7 @@ const EditTaskModalWindow: React.FC<Properties> = ({
                 id="task-title"
                 value={taskTitle}
                 onChange={handleTitleChange}
-                placeholder="Enter task title"
+                placeholder="Task title"
               />
               <div className={styles["status"]}>
                 <FaSyncAlt className={styles["icon"]} /> Status:&nbsp;
@@ -153,12 +162,12 @@ const EditTaskModalWindow: React.FC<Properties> = ({
                 value={taskDescription}
                 onChange={handleDescriptionChange}
                 className={styles["modal-textarea"]}
-                placeholder="Enter task description"
+                placeholder="Task description"
                 rows={5}
               ></textarea>
 
               <label htmlFor="task-date" className={styles["input-title"]}>
-                Task due date
+                Due date
               </label>
               <Input
                 type="date"
@@ -187,10 +196,18 @@ const EditTaskModalWindow: React.FC<Properties> = ({
               >
                 Cancel
               </Button>
+              {isError && (
+                <span className={styles["error"]}>Fill all inputs</span>
+              )}
             </section>
 
-            <section className={styles["modal-right-block"]}>
-              <h3 className={styles["modal-title"]}>Activity</h3>
+            <div className={styles["modal-right-block"]}>
+              <section className={styles["modal-title-wrapper"]}>
+                <h3 className={styles["modal-title"]}>Activity</h3>
+                <Button className={styles["button"]} onClick={onClose}>
+                  <FaTimes className={styles["icon-close"]} />
+                </Button>
+              </section>
               <ul className={styles["modal-list"]}>
                 {history.map((record: TaskHistory, index: number) => (
                   <li key={index} className={styles["list-item"]}>
@@ -204,7 +221,7 @@ const EditTaskModalWindow: React.FC<Properties> = ({
                   </li>
                 ))}
               </ul>
-            </section>
+            </div>
           </div>
         </div>
       )}

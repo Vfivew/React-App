@@ -47,6 +47,11 @@
 .modal-title {
   font-size: var(--font-size-300);
   font-weight: 600;
+}
+
+.modal-title-wrapper {
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 1em;
 }
 
@@ -109,7 +114,20 @@
 
 .icon {
   margin-right: 10px;
-  color:var(--main-color)
+  color:var(--main-color);
+  transition: 0.3s;
+}
+
+.icon-close {
+  margin-right: 10px;
+  color:var(--text-color-300);
+  transition: 0.3s;
+}
+
+.error{
+  color:var(--color-error);
+  display: flex;
+  margin-top: 12px;
 }
 
 @media screen and (--small-screen) {
@@ -132,5 +150,11 @@
 
   .modal-table td {
     padding: 4px 0;
+  }
+}
+
+@media screen and (--hover-active) {
+  .icon:hover{
+    color:var(--main-color)
   }
 }

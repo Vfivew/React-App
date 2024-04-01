@@ -77,12 +77,18 @@
 .icon {
   width: 20px;
   height: 20px;
-  color: var(--main-color);
+  color: var(--color-text-300);
   transition: 0.3s;
 }
 
 @media screen and (--small-screen) {
   .modal-content {
     width: 100%;
+  }
+}
+
+@media screen and (--hover-active) {
+  .icon:hover{
+    color:var(--main-color)
   }
 }

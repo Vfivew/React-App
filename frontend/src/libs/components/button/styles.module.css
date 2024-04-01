@@ -7,6 +7,7 @@
   border-radius: 0.25em;
   cursor: pointer;
   margin-right: 0.5em;
+  font-weight: bold;
   transition: 0.3s;
 }
 
@@ -17,10 +18,12 @@
   border-radius: 0.25em;
   cursor: pointer;
   transition: 0.3s;
+  font-weight: bold;
 }
 
 .plain {
   cursor: pointer;
+  font-weight: bold;
   transition: 0.3s;
 }
 
@@ -29,9 +32,9 @@
     background-color: var(--thirty-color);
   }
   .cancel:hover {
-    background-color: var(--color-text-100);
+    background-color: var(--color-text-300);
   }
-  .plain:hover * {
-    color: rgb(0, 0, 0);
+  .plain:hover {
+    color: var(--main-color)
   }
 }

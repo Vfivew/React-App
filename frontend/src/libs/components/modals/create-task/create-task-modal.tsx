@@ -1,5 +1,5 @@
 import { BiDotsVerticalRounded } from "react-icons/bi";
-import { FaSortAmountDown } from "react-icons/fa";
+import { FaSortAmountDown, FaTimes } from "react-icons/fa";
 
 import { ReactDropdown } from "~/libs/components/dropdown/dropdown";
 import { CreateTask, DropDownAction } from "~/libs/types/types";
@@ -9,7 +9,6 @@ import { Button } from "~/libs/components/button/button";
 import { Input } from "~/libs/components/input/input";
 
 import styles from "./styles.module.css";
-
 
 type Properties = {
   isOpen: boolean;
@@ -26,6 +25,7 @@ const CreateTaskModal: React.FC<Properties> = ({
   const [taskDescription, setTaskDescription] = useState("");
   const [taskDate, setTaskDate] = useState("");
   const [taskPriority, setTaskPriority] = useState("LOW");
+  const [isError, setIsError] = useState(false);
 
   const dropdownItems = Object.keys(Priority).map((element) => ({
     title: <div className={styles["drop-item"]}>{element}</div>,
@@ -55,6 +55,7 @@ const CreateTaskModal: React.FC<Properties> = ({
     setTaskDescription("");
     setTaskDate("");
     setTaskPriority(Priority.LOW);
+    setIsError(false);
   };
 
   const handleCreateTask = () => {
@@ -66,8 +67,11 @@ const CreateTaskModal: React.FC<Properties> = ({
         priority: taskPriority,
         columnId: 0,
       });
+      setIsError(false);
       clearForm();
       onClose();
+    } else {
+      setIsError(true);
     }
   };
 
@@ -87,8 +91,13 @@ const CreateTaskModal: React.FC<Properties> = ({
             onClick={handleModalClick}
           ></div>
           <div className={styles["modal-content"]}>
-            <section className={styles["modal-section"]}>
-              <h2 className={styles["modal-title"]}>Create Task</h2>
+            <div className={styles["modal-section"]}>
+              <section className={styles["modal-title-wrapper"]}>
+                <h2 className={styles["modal-title"]}>Create Task</h2>
+                <Button className={styles["button"]} onClick={onClose}>
+                  <FaTimes className={styles["icon"]} />
+                </Button>
+              </section>
               <label htmlFor="task-title" className={styles["input-title"]}>
                 Task Title
               </label>
@@ -98,7 +107,7 @@ const CreateTaskModal: React.FC<Properties> = ({
                 value={taskTitle}
                 onChange={handleTitleChange}
                 className={styles["modal-input"]}
-                placeholder="Enter task title"
+                placeholder="Task title"
               />
 
               <label
@@ -112,7 +121,7 @@ const CreateTaskModal: React.FC<Properties> = ({
                 value={taskDescription}
                 onChange={handleDescriptionChange}
                 className={styles["modal-textarea"]}
-                placeholder="Enter task description"
+                placeholder="Task description"
                 rows={5}
               ></textarea>
               <ReactDropdown
@@ -126,7 +135,7 @@ const CreateTaskModal: React.FC<Properties> = ({
               </ReactDropdown>
 
               <label htmlFor="task-date" className={styles["input-title"]}>
-                Task due date
+                Due date
               </label>
               <Input
                 type="date"
@@ -156,7 +165,10 @@ const CreateTaskModal: React.FC<Properties> = ({
               >
                 Cancel
               </Button>
-            </section>
+              {isError && (
+                <span className={styles["error"]}>Fill all inputs</span>
+              )}
+            </div>
           </div>
         </div>
       )}

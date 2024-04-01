@@ -1,7 +1,7 @@
 import { Draggable, Droppable } from "react-beautiful-dnd";
 import { BiDotsVerticalRounded } from "react-icons/bi";
-import { FaTrashCan } from "react-icons/fa6";
-import { FaEdit, FaPlus } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa6";
+import { FaRegEdit, FaPlus } from "react-icons/fa";
 
 import { Card } from "~/libs/components/card/card";
 import { CreateCard } from "~/libs/components/create-card/create-card";
@@ -37,7 +37,7 @@ const Column = ({
     {
       title: (
         <div className={styles["drop-item"]}>
-          <FaEdit className={styles["icon"]} /> Edit
+          <FaRegEdit className={styles["icon"]} /> Edit
         </div>
       ),
       action: DropDown.EDIT,
@@ -53,7 +53,7 @@ const Column = ({
     {
       title: (
         <div className={styles["delete-item"]}>
-          <FaTrashCan className={styles["icon"]} /> Delete
+          <FaTrash className={styles["icon"]} /> Delete
         </div>
       ),
       action: DropDown.DELETE,
