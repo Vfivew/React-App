@@ -4,6 +4,7 @@ import { Button } from "~/libs/components/button/button.js";
 import { Input } from "~/libs/components/input/input.js";
 
 import styles from "./styles.module.css";
+import { FaTimes } from "react-icons/fa";
 
 type Properties = {
   isOpen: boolean;
@@ -17,6 +18,7 @@ const CreateTaskListModal: React.FC<Properties> = ({
   onClose,
 }) => {
   const [listTitle, setListTitle] = useState("");
+  const [isError, setIsError] = useState(false);
 
   const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setListTitle(event.target.value);
@@ -24,13 +26,18 @@ const CreateTaskListModal: React.FC<Properties> = ({
 
   const clearForm = () => {
     setListTitle("");
+    setIsError(false);
   };
 
   const handleCreateList = () => {
     if (listTitle.trim() !== "") {
       onCreateList({ title: listTitle });
+      setIsError(false);
       clearForm();
       onClose();
+    }
+    else {
+      setIsError(true);
     }
   };
 
@@ -50,8 +57,13 @@ const CreateTaskListModal: React.FC<Properties> = ({
             onClick={handleModalClick}
           ></div>
           <div className={styles["modal-content"]}>
-            <section className={styles["modal-section"]}>
-              <h2 className={styles["modal-title"]}>Create List</h2>
+            <div className={styles["modal-section"]}>
+              <section className={styles["modal-title-wrapper"]}>
+                <h2 className={styles["modal-title"]}>Create List</h2>
+                <Button className={styles["button"]} onClick={onClose}>
+                  <FaTimes className={styles["icon"]} />
+                </Button>
+              </section>
               <label htmlFor="task-title" className={styles["input-title"]}>
                 Task Title
               </label>
@@ -61,7 +73,7 @@ const CreateTaskListModal: React.FC<Properties> = ({
                 value={listTitle}
                 onChange={handleTitleChange}
                 className={styles["modal-input"]}
-                placeholder="Enter task title"
+                placeholder="task title"
               />
               <Button
                 style="submit"
@@ -83,7 +95,10 @@ const CreateTaskListModal: React.FC<Properties> = ({
               >
                 Cancel
               </Button>
-            </section>
+              {isError && (
+                <span className={styles["error"]}>Fill all inputs</span>
+              )}
+            </div>
           </div>
         </div>
       )}

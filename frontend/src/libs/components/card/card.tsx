@@ -1,7 +1,7 @@
 import { Draggable } from "react-beautiful-dnd";
-import { FaCalendar, FaEdit } from "react-icons/fa";
+import { FaCalendarCheck, FaRegEdit } from "react-icons/fa";
 import moment from "moment";
-import { FaTrashCan } from "react-icons/fa6";
+import { FaTrash } from "react-icons/fa6";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { GoDotFill } from "react-icons/go";
 
@@ -45,7 +45,7 @@ const Card = ({ task, index }: Properties) => {
     {
       title: (
         <div className={styles["drop-item"]}>
-          <FaEdit className={styles["icon"]} /> Edit
+          <FaRegEdit className={styles["icon"]} /> Edit
         </div>
       ),
       action: DropDown.EDIT,
@@ -53,7 +53,7 @@ const Card = ({ task, index }: Properties) => {
     {
       title: (
         <div className={styles["delete-item"]}>
-          <FaTrashCan className={styles["icon"]} /> Delete
+          <FaTrash className={styles["icon"]} /> Delete
         </div>
       ),
       action: DropDown.DELETE,
@@ -107,7 +107,7 @@ const Card = ({ task, index }: Properties) => {
               : task.description}
           </p>
           <div className={styles["calendar-wrapper"]}>
-            <FaCalendar className={styles["calendar-icon"]} />
+            <FaCalendarCheck className={styles["calendar-icon"]} />
             <p className={styles["calendar-text"]}>
               {moment(task.due_date).format("YYYY/MM/DD")}
             </p>

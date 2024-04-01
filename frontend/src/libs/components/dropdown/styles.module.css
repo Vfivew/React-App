@@ -56,6 +56,6 @@
 
 @media screen and (--small-screen) {
   .dropdown {
-    left: -30px
+    left: -30px;
   }
 }

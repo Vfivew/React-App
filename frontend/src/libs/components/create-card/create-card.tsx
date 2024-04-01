@@ -47,7 +47,7 @@ const CreateCard: React.FC<Properties> = ({
         >
           <section className={styles["add-card"]} onClick={openModal}>
             <FaPlus className={styles["icon"]} />
-            <h3>Add new card</h3>
+            <h3 className={styles["add-card-title"]}>Add new card</h3>
           </section>
 
           <CreateTaskModal
